@@ -31,7 +31,57 @@ Methods:
 
 ```js
 class Stack {
-  // your code goes here
+  constructor(capacity = Infinity){
+    this.capacity = capacity;
+    this.arr = [];
+  }
+
+  get length(){
+    return this.arr.length;
+  }
+
+  add(val){
+    if(this.arr.length >= this.capacity){
+      alert('Stack is overflowing');
+      return;
+    }else{
+      this.arr.push(val);
+      return this.arr.length;
+    }
+  }
+
+  remove(val){
+    if(this.arr.length === 0){
+      alert('this stack is already empty');
+      return;
+    }else{
+      let deletedElement = this.arr.pop(val);
+      return deletedElement;
+    }
+  }
+
+  peek(){
+    return this.arr[this.arr.length - 1];
+  }
+
+  printaAll(){
+    if(this.arr.length === 0){
+      alert('No item to print stack is empty');
+      return;
+    }else{
+      this.arr.forEach(item => console.log(item));
+      return;
+    }
+  }
+
+  isEmpty(){
+    if(this.arr.length === 0){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
 }
 
 // Test 1
