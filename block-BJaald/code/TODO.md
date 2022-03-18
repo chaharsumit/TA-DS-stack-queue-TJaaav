@@ -31,7 +31,57 @@ Methods:
 
 ```js
 class Queue {
-  // your code goes here
+  constructor(capacity=Infinity){
+    this.capacity = capacity;
+    this.storage = [];
+  }
+
+  get length(){
+    return this.storage.length;
+  }
+
+  enqueue(val){
+    if(this.storage.length === this.capacity){
+      alert('The queue is overflowing');
+      return;
+    }else{
+      this.storage.push(val);
+      return this.storage.length;
+    }
+  }
+
+  dequeue(val){
+    if(this.storage.length === 0){
+      alert('The queue is already empty');
+      return;
+    }else{
+      let element = this.storage.shift(val);
+      return element;
+    }
+  }
+
+  peek(){
+    return this.storage[0];
+  }
+
+  printAll(){
+    if(this.storage.length === 0){
+      alert('no items to print');
+      return;
+    }else{
+      this.storage.forEach(item => alert(item));
+      return;
+    }
+  }
+
+  isEmpty(){
+    if(this.storage.length === 0){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
 }
 
 // Test 1
